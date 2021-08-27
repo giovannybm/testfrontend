@@ -16,42 +16,42 @@
         shadow-md
       "
     >
-      <img class="w-12" src="./assets/logo_bar.png" />
-      <div class="flex" @click="displayMenu">
-        <div class="bg-red rounded-full">
-          <img
-            class="h-10 rounded-full shadow"
-            src="https://i.pravatar.cc/150"
-          />
+      <img class="w-12" src="./assets/images/logo_bar.png" />
+      <div class="flex">
+        <i class="fas fa-envelope pt-4 px-4"></i>
+        <i class="fas fa-bell pt-4 px-4"></i>
+        <div class="flex pl-4" @click="displayMenu">
+          <div class="bg-red rounded-full">
+            <img
+              class="h-10 rounded-full shadow"
+              src="https://i.pravatar.cc/150"
+            />
+          </div>
+          <i class="fas fa-chevron-down pt-4"></i>
         </div>
-        <i class="fas fa-chevron-down pt-4"></i>
-      </div>
-      <div
-        tabindex="0"
-        ref="menu"
-        @blur="onBlur"
-        class="
-          absolute
-          right-2
-          top-14
-          
-          p-2
-          bg-white
-          shadow-md
-          rounded-md
-          border-0
-          hidden
-        "
-      >
-        <ul>
-          <li class="py-1 px-1">{{ user.username }}</li>
-          <li
-            class="py-1 px-1 hover:bg-blue-theme-1 hover:text-white  rounded-md"
-            @click="logout"
-          >
-            Cerrar sesión
-          </li>
-        </ul>
+        <div
+          tabindex="0"
+          ref="menu"
+          @blur="onBlur"
+          class="
+            absolute
+            right-2
+            top-14
+            p-2
+            bg-white
+            shadow-md
+            rounded-md
+            border-0
+            hidden
+          "
+        >
+          <ul>
+            <li class="py-1 px-1 font-bold">{{ user.username }}</li>
+            <li class="menu_item">Perfil</li>
+            <li class="menu_item">Configuración</li>
+            <li class="menu_item" @click="logout">Cerrar sesión</li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -99,5 +99,8 @@ export default {
 
 body {
   @apply text-gray-600;
+}
+.menu_item {
+  @apply py-1 px-1 hover:bg-blue-theme-1 hover:text-white rounded-md cursor-pointer;
 }
 </style>

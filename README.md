@@ -1,6 +1,8 @@
 # testfrontend
 
-Por Giovanny Badillo
+Por: Giovanny Badillo
+
+Vista en línea https://wizardly-nobel-d296a1.netlify.app/
 
 ## Acceso
 
@@ -9,7 +11,7 @@ Por Giovanny Badillo
 Usuario:Administrador
 Contraseña:Administrador
 
-``````
+```
 
 Usuario:Coordinador
 Contraseña:Coordinador
@@ -41,3 +43,4 @@ npm run lint
 ```### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+```

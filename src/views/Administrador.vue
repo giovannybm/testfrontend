@@ -1,9 +1,9 @@
 <template>
   <section class="flex justify-center flex text-center">
     <div class="">
-      <img class="" src="../assets/error.png" />
+      <img class="" src="../assets/images/error.png" />
       <h1 class="text-gray-600 text-4xl font-bold">Página En Mantenimiento</h1>
-      <h2> Inténtelo más tarde o consulte al admin</h2>
+      <h2>Inténtelo más tarde o consulte al admin</h2>
     </div>
   </section>
 </template>
@@ -14,5 +14,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
