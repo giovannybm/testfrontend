@@ -73,7 +73,7 @@
           <i
             @mousedown="revealPasswd"
             @mouseup="unrevealPasswd"
-            class="fas fa-eye absolute right-0 pr-3"
+            class="fas fa-eye absolute right-0 pr-3 pt-3"
           ></i>
         </span>
 
