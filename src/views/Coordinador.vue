@@ -63,33 +63,43 @@
             >
               <td class="table_cell">
                 {{ item.athlete }}
+                <span class="lg:hidden font-normal">Nombre</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.age }}
+                <span class="lg:hidden font-normal">Edad</span>
               </td>
               <td class="table_cell">
                 {{ item.country }}
+                <span class="lg:hidden font-normal">País</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.year }}
+                <span class="lg:hidden font-normal">Año</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.date }}
+                <span class="lg:hidden font-normal">Fecha</span>
               </td>
               <td class="table_cell">
                 {{ item.sport }}
+                <span class="lg:hidden font-normal">Deporte</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.gold }}
+                <span class="lg:hidden font-normal">Oro</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.silver }}
+                <span class="lg:hidden font-normal">Plata</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.bronze }}
+                <span class="lg:hidden font-normal">Bronce</span>
               </td>
               <td class="table_cell text-center">
                 {{ item.total }}
+                <span class="lg:hidden font-normal">Total</span>
               </td>
             </tr>
           </tbody>
@@ -246,7 +256,7 @@ export default {
   @apply border-b-2 border-gray-300 py-4 text-xs font-semibold hidden lg:table-cell;
 }
 .table_cell {
-  @apply px-2 py-4 border-b border-gray-200 text-sm w-full lg:w-auto block lg:table-cell relative bg-gray-100 lg:bg-transparent lg:static lg:text-left text-center;
+  @apply px-2 py-4 border-b border-gray-200 text-sm w-full lg:w-auto flex flex-col block lg:table-cell relative bg-gray-100 lg:bg-transparent lg:static lg:text-left text-center font-semibold lg:font-normal;
 }
 .table_row {
   @apply lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-nowrap mb-10 lg:mb-0;
