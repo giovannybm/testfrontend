@@ -1,28 +1,11 @@
 <template>
   <section
-    class="
-
-      login__container
-      h-screen
-      v-screen
-      flex flex-wrap
-      content-center
-      justify-center
-    "
+    class="login__container h-screen v-screen flex flex-wrap content-center justify-center"
   >
     <div
-      class="
-        login_form
-       
-        p-10
-        pt-5
-        shadow
-        mx-auto
-        flex
-        rounded-lg
-      "
+      class="login_form relative pt-5 px-8 pb-12 shadow mx-auto flex flex-col rounded-lg"
     >
-      <div class="flex-1">
+      <div class="flex-1 w-72">
         <img
           class="mb-3 mx-auto"
           style="height: 150px"
@@ -31,83 +14,64 @@
         />
         <span class="flex shadow-md mb-5 text-xs">
           <span
-            class="
-              bg-blue-theme-1
-              w-16
-              font-bold
-              text-center text-gray-200
-              p-2
-              px-5
-              rounded-l
-            "
-            ><i class="fas fa-user"></i></span
-          ><input
+            class="bg-blue-theme-1 w-16 font-bold text-center text-gray-200 p-2 px-5 rounded-l"
+            ><i class="fas fa-user"></i
+          ></span>
+          <input
             class="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
             type="text"
             placeholder="someonespecial@example.com"
             v-model="userInput"
+            @focus="clearError"
           />
         </span>
-        <span class="flex shadow-md mb-5 text-xs">
+        <span class="flex shadow-md mb-5 text-xs relative">
           <span
-            class="
-              bg-blue-theme-1
-              w-16
-              font-bold
-              text-center text-gray-200
-              p-2
-              px-5
-              rounded-l
-            "
+            class="bg-blue-theme-1 w-16 font-bold text-center text-gray-200 p-2 px-5 rounded-l"
             ><i class="fas fa-key"></i></span
           ><input
             class="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
-            type="password"      
+            type="password"
             placeholder="pass"
             v-model="passwdInput"
+            @focus="clearError"
+            ref="inputPasswd"
           />
+          <i
+            @mousedown="revealPasswd"
+            @mouseup="unrevealPasswd"
+            class="fas fa-eye absolute inset-y-0 pt-3 right-0 pr-3 flex items-center "
+          ></i>
         </span>
-      
+
         <span
-          class="
-            bg-blue-theme-1            
-            hover:bg-blue-theme-2
-            hover:text-gray-100
-            mt-3
-            text-white
-            block
-            text-center
-            p-3
-            px-4
-            text-sm
-            rounded-lg
-            cursor-pointer
-            font-bold
-            shadow-md
-          "
+          class="bg-blue-theme-1 hover:bg-blue-theme-2 hover:text-gray-100 mt-3 text-white block text-center p-3 px-4 text-sm rounded-lg cursor-pointer font-bold shadow-md "
           @click="login"
           >Login</span
         >
       </div>
+
+      <div
+        class="bg-yellow-400 rounded-b-lg mt-4 p-2 absolute left-0 bottom-0 w-full text-center text-sm text-red-800"
+        v-if="loginError"
+      >
+        {{ this.errorText }}
+      </div>
     </div>
 
     <footer
-      class="
-        fixed
-        bottom-0
-        left-0        
-        h-20
-        w-full
-        text-white text-center
-        bg-gradient-to-b from-blue-theme-0 to-blue-theme-2
-        flex items-center
-        justify-center
-      "
+      class="fixed bottom-0 left-0 w-full text-white text-center text-sm bg-gradient-to-b from-blue-theme-0 to-blue-theme-2 flex flex-col sm:flex-row justify-between content-center items-center"
     >
-    <div>
-      <p>Usuario: Administrador, Contraseña: Administrador</p>
-      <p>Usuario: Coordinador, Contraseña: Coordinador</p>
-    </div>
+      <div></div>
+      <div class="p-2">
+        <p>Usuario: Administrador, Contraseña: Administrador</p>
+        <p>Usuario: Coordinador, Contraseña: Coordinador</p>
+      </div>
+      <div class="text-2xl h-full items-center">
+        <a href="https://github.com/lexetam/testfrontend"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
     </footer>
   </section>
 </template>
@@ -118,6 +82,8 @@ export default {
     return {
       userInput: null,
       passwdInput: null,
+      loginError: false,
+      errorText: null,
     };
   },
   computed: {},
@@ -137,23 +103,42 @@ export default {
             } else if (userData.role == "Coordinador") {
               this.$router.replace({ path: "coordinador" });
             }
+          } else {
+            this.loginError = true;
+            this.errorText = "Error, Credenciales Incorrectas";
           }
+        } else {
+          this.loginError = true;
+          this.errorText = "Error, Credenciales Incorrectas";
         }
+      } else {
+        this.loginError = true;
+        this.errorText = "Error, Complete los campos";
       }
+    },
+    clearError() {
+      this.errorText = null;
+      this.loginError = false;
+    },
+    revealPasswd(e) {
+      e.target.classList.add("text-blue-theme-2");
+      this.$refs.inputPasswd.type = "text";
+    },
+    unrevealPasswd(e) {
+      e.target.classList.remove("text-blue-theme-2");
+      this.$refs.inputPasswd.type = "password";
     },
   },
 };
 </script>
-<style >
-.login__container{
-    background-color: rgba(255, 255, 255, 0.438);
-  background-image: url('../assets/bg.jpg');
-
+<style>
+.login__container {
+  background-color: rgba(255, 255, 255, 0.438);
+  background-image: url("../assets/bg.jpg");
 }
-.login_form{
+.login_form {
   background-color: rgba(255, 255, 255, 0.9);
-  
-  backdrop-filter: blur(25px);
 
+  backdrop-filter: blur(25px);
 }
 </style>
