@@ -243,13 +243,13 @@ export default {
 
 <style lang="postcss">
 .table_header {
-  @apply border-b-2 border-gray-300 py-4 text-xs font-semibold;
+  @apply border-b-2 border-gray-300 py-4 text-xs font-semibold hidden lg:table-cell;
 }
 .table_cell {
-  @apply px-2 py-4 border-b border-gray-200 text-sm;
+  @apply px-2 py-4 border-b border-gray-200 text-sm w-full lg:w-auto block lg:table-cell relative bg-gray-100 lg:bg-transparent lg:static lg:text-left text-center;
 }
 .table_row {
-  @apply lg:hover:bg-gray-100;
+  @apply lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-nowrap mb-10 lg:mb-0;
 }
 .card_item {
   @apply p-4 bg-white shadow-xl rounded-md hover:bg-gray-100 border border-transparent hover:border-blue-theme-1 cursor-pointer;
