@@ -11,6 +11,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
+    "tailwindcss-border-gradients": "^2.0.3",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
@@ -28,6 +29,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "postcss": "^7.0.36",
+    "prettier": "^2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7",
     "vue-template-compiler": "^2.6.11"
   }

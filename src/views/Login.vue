@@ -1,6 +1,7 @@
 <template>
   <section
     class="
+
       login__container
       h-screen
       v-screen
@@ -12,16 +13,16 @@
     <div
       class="
         login_form
-        border-2 border-indigo-500
+       
         p-10
         pt-5
-        shadow-sm
+        shadow
         mx-auto
         flex
-        rounded
+        rounded-lg
       "
     >
-      <div class="sec flex-1">
+      <div class="flex-1">
         <img
           class="mb-3 mx-auto"
           style="height: 150px"
@@ -31,8 +32,8 @@
         <span class="flex shadow-md mb-5 text-xs">
           <span
             class="
-              bg-indigo-500
-              w-28
+              bg-blue-theme-1
+              w-16
               font-bold
               text-center text-gray-200
               p-2
@@ -50,8 +51,8 @@
         <span class="flex shadow-md mb-5 text-xs">
           <span
             class="
-              bg-indigo-500
-              w-28
+              bg-blue-theme-1
+              w-16
               font-bold
               text-center text-gray-200
               p-2
@@ -66,32 +67,23 @@
             v-model="passwdInput"
           />
         </span>
-        <a
-          class="
-            text-indigo-500
-            hover:underline
-            font-bold
-            text-xs
-            ml-auto
-            cursor-pointer
-          "
-          >Forget Password ?</a
-        >
+      
         <span
           class="
-            border-2 border-indigo-500
-            hover:bg-indigo-500
+            bg-blue-theme-1            
+            hover:bg-blue-theme-2
             hover:text-gray-100
             mt-3
-            text-indigo-500
+            text-white
             block
             text-center
             p-3
             px-4
             text-sm
-            rounded
+            rounded-lg
             cursor-pointer
             font-bold
+            shadow-md
           "
           @click="login"
           >Login</span
@@ -103,15 +95,19 @@
       class="
         fixed
         bottom-0
-        left-0
-        bg-indigo-600
+        left-0        
         h-20
         w-full
         text-white text-center
+        bg-gradient-to-b from-blue-theme-0 to-blue-theme-2
+        flex items-center
+        justify-center
       "
     >
+    <div>
       <p>Usuario: Administrador, Contraseña: Administrador</p>
       <p>Usuario: Coordinador, Contraseña: Coordinador</p>
+    </div>
     </footer>
   </section>
 </template>
@@ -149,7 +145,15 @@ export default {
 };
 </script>
 <style >
-.login__container--form {
-  backdrop-filter: blur(5px);
+.login__container{
+    background-color: rgba(255, 255, 255, 0.438);
+  background-image: url('../assets/bg.jpg');
+
+}
+.login_form{
+  background-color: rgba(255, 255, 255, 0.9);
+  
+  backdrop-filter: blur(25px);
+
 }
 </style>

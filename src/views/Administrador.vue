@@ -1,22 +1,18 @@
 <template>
-    <section class="  h-screen
-      v-screen
-      flex flex-wrap
-      content-center
-      justify-center">
-        <div class="flex flex-wrap content-center justify-center">
-<img class="w-1/2 md:w-1/4" src="../assets/error.png">
-<h1 class="text-2xl">Página En Mantenimiento</h1>
-          </div>
-      </section>
+  <section class="flex justify-center flex text-center">
+    <div class="">
+      <img class="" src="../assets/error.png" />
+      <h1 class="text-gray-600 text-4xl font-bold">Página En Mantenimiento</h1>
+      <h2> Inténtelo más tarde o consulte al admin</h2>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-name:'Administrador'
-}
+  name: "Administrador",
+};
 </script>
 
 <style>
-
 </style>

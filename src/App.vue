@@ -9,32 +9,32 @@
         py-4
         px-6
         bg-white
-        border-b-4 border-indigo-600
+        border-b-4 border-blue-theme-1
         sticky
         top-0
         z-50
+        shadow-md
       "
     >
       <img class="w-12" src="./assets/logo_bar.png" />
-      <div class="flex" @click="displayMenu" >
+      <div class="flex" @click="displayMenu">
         <div class="bg-red rounded-full">
           <img
             class="h-10 rounded-full shadow"
-            src="https://i.pravatar.cc/300"
+            src="https://i.pravatar.cc/150"
           />
         </div>
         <i class="fas fa-chevron-down pt-4"></i>
       </div>
       <div
-      tabindex="0"
+        tabindex="0"
         ref="menu"
         @blur="onBlur"
-       
         class="
           absolute
           right-2
           top-14
-          w-64
+          
           p-2
           bg-white
           shadow-md
@@ -44,9 +44,9 @@
         "
       >
         <ul>
-          <li class="py-3 px-1">{{ user.username }}</li>
+          <li class="py-1 px-1">{{ user.username }}</li>
           <li
-            class="py-3 px-1 hover:bg-indigo-600 hover:text-white rounded-full"
+            class="py-1 px-1 hover:bg-blue-theme-1 hover:text-white  rounded-md"
             @click="logout"
           >
             Cerrar sesión
@@ -85,17 +85,19 @@ export default {
     },
     displayMenu() {
       this.userMenu = true;
-      this.$refs.menu.classList.remove('hidden')
-      this.$refs.menu.focus()
+      this.$refs.menu.classList.remove("hidden");
+      this.$refs.menu.focus();
     },
     onBlur() {
-      this.$refs.menu.classList.add('hidden')
-    }
-  }
+      this.$refs.menu.classList.add("hidden");
+    },
+  },
 };
 </script>
-<style>
+<style lang="postcss">
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
 body {
-  background: #efefef;
+  @apply text-gray-600;
 }
 </style>
